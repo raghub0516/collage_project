@@ -1,0 +1,45 @@
+<html>
+<body background="images/center.jpg" alink=blue vlink=blue>
+<form action="ilogin.jsp" name="f1" method="post" onsubmit="return check()">
+<br><br><br>
+<script language="JavaScript">
+function check()
+ {
+ if(f1.dcode.value=="")
+  {
+  alert("Please enter dealer code");
+  f1.dcode.focus();
+  return false;
+  }
+ if((f1.pwd.value)=="")
+  {
+  alert("Please enter Password");
+  f1.pwd.focus();
+  return false;
+  }
+ return true;
+ }
+</script>
+<A href="helpme.html#DealerLogin">HelpMe</A> 
+<center>
+<hr width=350 color=lightblue size=3>
+<h2><font size=4 color="purple"><b><i>DEALER  LOGIN  FORM </i></font></b></h2>
+<hr width=350 color=lightblue size=3>
+<br><br>
+<br><br>
+<table><tr><td><b><i>
+Dealer Code:&nbsp;&nbsp;</b></i></td>
+<td><input type="text" name="dcode" size=20 style="background:"></td></tr>
+<tr><td><b><i>Password:&nbsp;&nbsp;</b></i></td>
+<td><input type="password" name="pwd" size=20 style="background:"></td></tr>
+</table>
+<br>
+<table>
+<tr>
+<td width=4%></td>
+<td><input type="submit" name="login" value="Login"></td></tr>
+</table>
+</form>
+</body>
+</html>
+

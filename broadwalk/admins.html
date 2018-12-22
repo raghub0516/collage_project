@@ -1,0 +1,43 @@
+<html>
+<script language="JavaScript">
+function check()
+ {
+  if(f1.uid.value=="")
+   {
+    alert("Please Enter Your UserId");
+    f1.uid.focus();
+    return false;
+   }
+ if(f1.pwd.value=="")
+   {
+    alert("please Enter Your PassWord");
+    f1.pwd.focus();
+    return false;
+   }
+ return true;
+}
+</script>
+<A href="helpme.html#AdminLogin">HelpMe</A> 
+<center>
+<hr width=350 color=lightblue size=3>
+<h2><font size=4 color="purple"><b><i>ADMINISTRATOR LOGIN</i></font></b></h2>
+<hr width=350 color=lightblue size=3>
+</center>
+<body background="images/center.jpg" alink=blue vlink=blue>
+<br><br>
+<form action="iadmin.jsp" name="f1" onsubmit="return check()" method=post>
+<center>
+<font size=4>
+<table border=0>
+<tr><td><b>Enter Your ID:</b></td>
+<td> <input name="uid" STYLE="background:snuf"></td></tr>
+<tr><td><b>Enter Your Password:</b></td>
+<td><input type=password name="pwd" STYLE="background:">
+</td></tr>
+<tr><td></td><td>
+<input type=submit name="submit" value="Login"></td></tr>
+</b>
+</table>
+</center>
+</form>
+</html>

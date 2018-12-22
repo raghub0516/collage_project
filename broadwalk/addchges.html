@@ -1,0 +1,55 @@
+<html>
+<body background="images/center.jpg" alink=blue vlink=blue>
+<a href="ltschges.html">back</a>&nbsp;&nbsp;
+<a href="viewchges.jsp">view chrges</a>
+<br><br>
+<b>
+Please Fill the Following Information.
+<script language="JavaScript">
+function check()
+ {
+ if(f1.coun.value=="")
+  {
+alert("Please Enter Country Name");
+ f1.coun.focus();
+  return false;
+ }
+else
+if((f1.coun.value).length>15)
+{
+ alert("please enter country name in 15chars only");
+f1.coun.value="";
+f1.coun.focus();
+return false;
+}
+if(f1.tc.value=="")
+  {
+  f1.tc.value=0.0;
+  alert("Please enter Transport Charge");
+  f1.tc.focus();
+  return false;
+  }
+else
+if((f1.tc.value).length>15)
+{
+alert("please enter transport charge in 15 digits");
+f1.tc.value=0.0;
+f1.tc.focus();
+return false;
+}
+return true;
+ }
+</script>
+<table>
+<form action="padd.jsp" name="f1" onsubmit="return check()" method=post>
+ <table><tr>
+<td width=20%></td><td><font size="3" color="blue"><b>County Name:<b></font></td><td><input type="hidden" name="coun" size=20 value=India>India</td></tr>
+<tr><td></td><td><font size="3" color="blue"><b>TranportCharge(upto 10itms):<b></font></td>
+<td><input type="text" name="tc" size=20></td></tr>
+</table>
+<br><br>
+Click <input type="submit" name="submit" value="O.K">to Add.
+</form>
+</html>
+
+

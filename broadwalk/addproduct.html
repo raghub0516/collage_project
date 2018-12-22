@@ -1,0 +1,172 @@
+<html>
+<body background="images/center.jpg" alink=lightblue vlink=blue>
+<Script language="JavaScript">
+function checkinput()
+ {
+ if(f1.pcd.value=="")
+  {
+   alert("Please enter Product Code");
+   f1.pcd.focus();
+  return false;  
+}
+else
+ if(((f1.pcd.value).length)>10)
+  {
+  alert("please enter product code of 10 charsonly");
+  f1.pcd.value=""; 
+  f1.pcd.focus();
+  return false;
+  }
+ if(f1.pnm.value=="")
+ {
+  alert("please Enter Product Name");
+  f1.pnm.focus();
+  return false;   
+}
+else
+ if(((f1.pnm.value).length)>20)
+  {
+  alert("please enter product name of 20 charsonly");
+  f1.pnm.value=""; 
+  f1.pnm.focus();
+  return false;
+  }
+ if(f1.cp.value=="")
+ {
+ alert("please Enter CustomerPrice of Product");
+ f1.cp.focus();
+  return false;   
+}
+else
+{
+if(isNaN(f1.cp.value))
+ {
+alert("please enter valid Customer Price");
+ f1.cp.focus();
+ return false;
+}
+if((f1.cp.value).length>15)
+{
+alert("please enter valid price for item only");
+f1.cp.value="";
+f1.cp.focus();
+return false;
+}}
+
+ if(f1.dp.value=="")
+ {
+ alert("please Enter DealerPrice of Product");
+ f1.dp.focus();
+  return false;   
+}
+else
+{
+if(isNaN(f1.dp.value))
+ {
+alert("please enter valid Dealer Price");
+ f1.dp.focus();
+ return false;
+}
+if((f1.dp.value).length>15)
+{
+alert("please enter valid price for item only");
+f1.dp.value="";
+f1.dp.focus();
+return false;
+}}
+if(f1.des.value=="")
+  {
+  f1.des.value="good product";
+  }
+else
+ if((f1.des.value).length>35)
+  {
+  alert("please enter description in 35 chars.");
+  f1.des.focus();
+  return false;
+  }
+if(f1.cap.value=="")
+ {
+ alert("Please Enter capacity of this product");
+ f1.cap.focus();
+ return false;
+}
+else
+{
+if((f1.cap.value).length>5)
+{
+alert("please enter capacity in 5digits");
+f1.cap.value="";
+f1.cap.focus();
+return false;
+}
+if(isNaN(f1.cap.value))
+{
+alert("please enter capacity in numeric");
+f1.cap.focus();
+return false;
+}}
+if(f1.war.value=="")
+ {
+  f1.war.value="0yrs";
+  }
+else
+ {
+if((f1.war.value).length>10)
+ {
+alert("please enter warrenty in 10chars");
+f1.war.value="";
+f1.war.focus();
+return false;
+}}
+if(f1.ele.value=="")
+ {
+ f1.ele.value="Not Required";
+ }
+else
+if((f1.ele.value).length>15)
+ {
+alert("please enter Electical input in 15chars");
+f1.ele.value="";
+f1.ele.focus();
+return false;
+}
+return true;
+}
+</script>
+<form action="addp.jsp" name="f1" onsubmit="return checkinput()" method=post>
+<b>
+<a href="adproducts.html">back</a>&nbsp;&nbsp;
+<a href="dcatalog.jsp">viewcatalog</a>
+<br><br>
+<center>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4 color="black"<b>Please fill the Folloing Information.</b></font>
+<br><br>
+<br><br>
+<table>
+<tr>
+<td width=35%></td>
+<td><font size="3"color="black"><b>Productcode</b></font></td><td><input type="text" name="pcd" size="20"></td></tr>
+<tr><td></td>
+<td><font size="3"color="black"><b>Productname</b></font></td><td><input type="text" name="pnm" size="20"></td></tr>
+<tr><td></td>
+<td><font size="3"color="black"><b>CustomerPrice(per box)</b></font></td><td><input type="text" name="cp" size="20"></td></tr>
+<tr><td></td>
+<td><font size="3"color="black"><b>DealerPrice</b></font></td><td><input type="text" name="dp" size="20"></td></tr>
+<tr><td></td>
+<td><font size="3"color="black"><b>Description</b></font></td><td><input type="text" name="des" size="20"></td></tr>
+<tr><td></td>
+<tr><td></td>
+<td><font size="3"color="black"><b>Warrenty</b></font></td><td><input type="text" name="war" size="20"></td></tr>
+<tr><td></td>
+</table>
+<table>
+<tr>
+<td width=38%></td><td><b><input type="submit" name="submit" value="O.K">to add this product	 to CATALOG.</td></b>
+</tr>
+</table>
+</center>
+
+</form>
+</html>

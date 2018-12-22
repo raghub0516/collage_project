@@ -1,0 +1,93 @@
+<html>
+<body background="images/center.jpg" alink=blue vlink=blue>
+<a href="dlincosts.jsp">back</a><br><br>
+<jsp:useBean id="dlt" scope="session" class="mytags.orddte"/>
+<%@ page language="Java" import="java.sql.*"%>
+<%
+String q,q1,q2,dy,month,year,c,c1,c2,need;
+int flag=0;
+String[] hd=new String[100];
+dy=dlt.retdy();
+int dly=Integer.parseInt(dy);
+if(dly<10)
+dy="0"+dy;
+month=dlt.retmon();
+year=dlt.retyear();
+need=dlt.retneed();
+String date=dy+"-"+month+"-"+year;
+Statement st,st1,st2,st4;
+ResultSet rs,rs1,rs2,rs4;
+Connection con;
+q="select distinct(rdid) from depays where to_char(dor,'dd-fmmonth-yyyy')";
+q1=" LIKE '"+date+"' and need='"+need+"'";
+q2=q+q1;
+try
+ {
+Class.forName("oracle.jdbc.driver.OracleDriver");
+  con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","scott","tiger");
+
+st=con.createStatement();
+st1=con.createStatement();
+st2=con.createStatement();
+st4=con.createStatement();
+rs=st.executeQuery(q2);
+out.println("<br><b><u>Order Information</u> Of above Dealers.</b>");
+out.println("<table border=\"1\" bordercolor=b75b00 bgcolor=ffffb0 cellpadding=5>");
+out.println("<tr bgcolor=b75b00><td><b>Dealercode</b></td><td><b>OrderInformation</b></td>");
+out.println("</tr>");
+while(rs.next())
+  {
+String id=rs.getString(1);
+out.println("<tr><td>"+id+"</td>");
+out.println("<td><table border=\"1\" bordercolor=b75b00><tr><td>OrderNo</td><td>ProductInfo</td></tr>"); 
+String q3="select dordid from depays where rdid='"+id+"' and ";
+String q4="to_char(dor,'dd-fmmonth-yyyy') LIKE '"+date+"' and need='";
+String q5=need+"' order by dordid";
+String q6=q3+q4+q5;
+int i=0;
+rs1=st1.executeQuery(q6);
+while(rs1.next())
+ {
+ hd[i]=rs1.getString(1);
+ i++;
+ }
+int j;
+for(j=0;j<i;j++)
+ {
+out.println("<tr><td>"+hd[j]+"</td>");
+String q7="select prodid,quantity,idamt from dlorder where rdid='"+id+"'";
+String q8=" and dordid='"+hd[j]+"'";
+String q9=q7+q8;
+out.println("<td><table border=\"1\"bordercolor=b75b00><tr>");
+out.println("<td><b>prodid</b></td><td><b>Quantity</b></td><td><b>Amount</b></td></tr>");
+rs2=st2.executeQuery(q9);
+while(rs2.next())
+ {
+out.println("<tr><td>"+rs2.getString(1)+"</td><td>"+rs2.getString(2)+"</td>");
+out.println("<td>"+rs2.getString(3)+"</td></tr>");
+ }
+out.println("</table></td></tr>");
+}
+out.println("</td></tr></table>");
+}
+out.println("</table>");
+String d1="select to_char(dor+4,'dd-fmmonth-yyyy'),to_char(dor+8,'dd-fmmonth-yyyy')";
+String d2=",to_char(dor+12,'dd-fmmonth-yyyy') from depays where to_char(dor,'dd-fmmonth-yyyy')";
+String d3="LIKE '"+date+"'";
+String d=d1+d2+d3;
+rs4=st4.executeQuery(d);
+rs4.next();
+out.println("<font color=\"red\">");
+if(need.equals("urgent"))
+out.println("<b>These Orders need to be dispatched on/before</b></font> "+rs4.getString(1)+".");
+else
+if(need.equals("immediate"))
+out.println("<b>These Orders need to be dispatched on/before</b></font> "+rs4.getString(2)+".");
+else
+out.println("<b>These Orders need to be dispatched on/before</b></font> "+rs4.getString(3)+".");
+}
+catch(Exception e)
+{
+out.println(e.getMessage());
+}
+%>

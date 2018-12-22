@@ -1,0 +1,64 @@
+<html>
+<body bgcolor="a3a352">
+<SCRIPT language=JavaScript>
+function checkinput()
+ {
+if((f1.pido.value!=""))
+{if(f1.qtyo.value=="")f1.qtyo.value="0";f1.hideo.value="true";f1.hide.value="true";
+}else f1.hideo.value="false";
+if((f1.pidf.value!=""))
+{if(f1.qtyf.value=="")f1.qtyf.value="0";
+f1.hide.value="true";
+f1.hidef.value="true";}else f1.hidef.value="false";
+if((f1.pids.value!=""))
+{if(f1.qtys.value=="")f1.qtys.value="0";
+f1.hide.value="true";
+f1.hides.value="true";}else f1.hides.value="false";
+if((f1.pidt.value!=""))
+{if(f1.qtyt.value=="")f1.qtyt.value="0";f1.hidet.value="true";f1.hide.value="true";
+}else f1.hidet.value="false";
+return true;
+}
+</SCRIPT>
+<FORM name=f1  onsubmit="return checkinput()" 
+action="npr.jsp" method=post>
+<CENTER><BR>To place order fill the Info and click <B>ADD TO CART</B>for each 
+item. <BR>For further Information regarding products view <A 
+href="catalog.jsp"><B>CATALOG</B></A> <BR>
+<TABLE border=1 bgcolor=ffffb0 bordercolor=brown>
+  <TR bgcolor=b75b00>
+    <TD><B><U>ITEM CODE#:</B></U> </TD>
+    <TD><B><U>PRICE EACH:</U></B></TD>
+    <TD><B><U>QUANTITY :</B></U></TD>
+    <TD><B><U>ACTION :</B></U></TD></TR>
+  <TR>
+    <TD><INPUT size=12 name="pido"></TD>
+    <TD><INPUT size=12 name="preo"></TD>
+    <TD><INPUT size=10 name="qtyo"></TD>
+    <TD><input type="submit" name="submit" value="1.ADD TO CART"></TD></TR>
+  <tr>  
+    <TD><INPUT size=12 name="pidf"></TD>
+    <TD><INPUT size=12 name="pref"></TD>
+    <TD><INPUT size=10 name="qtyf"></TD>
+    <TD><input type="submit" name="submit" value="2.ADD TO CART"></TD></TR>
+  <TR>
+    <TD><INPUT size=12 name="pids"></TD>
+    <TD><INPUT size=12 name="pres"></TD>
+    <TD><INPUT size=10 name="qtys"></TD>
+    <TD><input type="submit" name="submit" value="3.ADD TO CART"></TD></TR>
+  <TR>
+    <TD><INPUT size=12 name="pidt"></TD>
+    <TD><INPUT size=12 name="pret"></TD>
+    <TD><INPUT size=10 name="qtyt"></TD>
+    <TD><input type="submit" name="submit" value="4.ADD TO CART"></TD></TR> 
+ </TABLE></center>
+<input type="hidden" val="false" name="hide">
+<input type="hidden" val="false" name="hideo">
+<input type="hidden" val="false" name="hidef">
+<input type="hidden" val="false" name="hides">
+<input type="hidden" val="false" name="hidet">
+<TABLE border=0>
+   <tr><td width="42%"></td><td>For more info</td>
+    <td><A href="vieworder.jsp">VIEW ORDER</A></td></tr>
+</table>
+</html>
